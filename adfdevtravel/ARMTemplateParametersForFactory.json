@@ -68,6 +68,12 @@
 		"ls_validdata_parquet_accountKey": {
 			"value": ""
 		},
+		"LS_INPUT_BLOB_TRIGGER_connectionString": {
+			"value": ""
+		},
+		"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
+			"value": ""
+		},
 		"LS_ADLSCSV_properties_typeProperties_url": {
 			"value": "https://adlsdevtravel001.dfs.core.windows.net"
 		},
@@ -145,6 +151,12 @@
 		},
 		"ls_validdata_parquet_properties_typeProperties_url": {
 			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
+			"value": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728"
 		}
 	}
 }

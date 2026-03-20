@@ -91,6 +91,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_validdata_parquet'"
 		},
+		"LS_INPUT_BLOB_TRIGGER_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_INPUT_BLOB_TRIGGER'"
+		},
+		"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_TRIGGER_OUTPUT'"
+		},
 		"LS_ADLSCSV_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net"
@@ -195,6 +203,14 @@
 			"type": "string",
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net/"
 		},
+		"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -276,6 +292,9 @@
 					"ls_validdata_parquet_accountKey": {
 						"value": "[parameters('ls_validdata_parquet_accountKey')]"
 					},
+					"LS_INPUT_BLOB_TRIGGER_connectionString": {
+						"value": "[parameters('LS_INPUT_BLOB_TRIGGER_connectionString')]"
+					},
 					"LS_ADLSCSV_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLSCSV_properties_typeProperties_url')]"
 					},
@@ -345,6 +364,9 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
+					"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
+						"value": "[parameters('LS_ADLS_TRIGGER_OUTPUT_accountKey')]"
+					},
 					"LS_LOOKUP_SQLSERVER_password": {
 						"value": "[parameters('LS_LOOKUP_SQLSERVER_password')]"
 					},
@@ -353,6 +375,9 @@
 					},
 					"LS_SQL_ADLS_password": {
 						"value": "[parameters('LS_SQL_ADLS_password')]"
+					},
+					"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url')]"
 					},
 					"LS_LOOKUP_SQLSERVER_properties_typeProperties_server": {
 						"value": "[parameters('LS_LOOKUP_SQLSERVER_properties_typeProperties_server')]"
@@ -400,6 +425,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
+						"value": "[parameters('EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope')]"
 					}
 				}
 			},
