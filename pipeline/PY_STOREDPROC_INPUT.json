@@ -1,0 +1,45 @@
+{
+	"name": "PY_STOREDPROC_INPUT",
+	"properties": {
+		"activities": [
+			{
+				"name": "SP_INPUTTO_SQLSERVER",
+				"description": "USED TO INSERT DATA INTO SQL SERVER DATABASE",
+				"type": "SqlServerStoredProcedure",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"storedProcedureName": "[spdemo].[InsertCustomer]",
+					"storedProcedureParameters": {
+						"CustomerID": {
+							"value": "1",
+							"type": "Int32"
+						},
+						"FirstName": {
+							"value": "Aira",
+							"type": "String"
+						},
+						"LastName": {
+							"value": "C",
+							"type": "String"
+						}
+					}
+				},
+				"linkedServiceName": {
+					"referenceName": "LS_SP_SQLSERVER",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-03-16T09:25:03Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

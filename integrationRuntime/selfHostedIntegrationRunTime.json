@@ -1,0 +1,7 @@
+{
+	"name": "selfHostedIntegrationRunTime",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "This is used when we want to transfer data from on-premises applications"
+	}
+}

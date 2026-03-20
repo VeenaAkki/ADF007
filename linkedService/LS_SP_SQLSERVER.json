@@ -1,0 +1,22 @@
+{
+	"name": "LS_SP_SQLSERVER",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"description": "LS used for stored procedure connection",
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "localhost\\SQLEXPRESS",
+			"database": "SalesDB",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "Windows",
+			"userName": "Vinuta",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiNDA1YjI1Yi0wM2ZlLTRiOTMtYWMzOC04ZTA4YWJlZGZjYjMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "selfHostedIntegrationRunTime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

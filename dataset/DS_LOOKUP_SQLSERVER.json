@@ -1,0 +1,17 @@
+{
+	"name": "DS_LOOKUP_SQLSERVER",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_LOOKUP_SQLSERVER",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "PEOPLE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

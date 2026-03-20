@@ -1,0 +1,21 @@
+{
+	"name": "LS_LOOKUP_SQLSERVER",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "localhost\\SQLEXPRESS",
+			"database": "SalesDB",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "Windows",
+			"userName": "Vinuta",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmYWVjMGM4Ny1lMmNjLTQ2ODgtYTFlZC05ZjUzNzQyNGE3MjQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "selfHostedIntegrationRunTime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"name": "adfdevtravel",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d69434b7-5917-4e15-991d-c068659949bb",
+		"tenantId": "4a19b14c-308a-458f-b8bd-70106980c002"
+	}
+}

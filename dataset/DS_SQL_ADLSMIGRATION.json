@@ -1,0 +1,55 @@
+{
+	"name": "DS_SQL_ADLSMIGRATION",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SQL_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Index",
+				"type": "smallint",
+				"precision": 5
+			},
+			{
+				"name": "User_Id",
+				"type": "nvarchar"
+			},
+			{
+				"name": "First_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Last_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Sex",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Email",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Phone",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Date_of_birth",
+				"type": "date"
+			},
+			{
+				"name": "Job_Title",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "PEOPLE"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

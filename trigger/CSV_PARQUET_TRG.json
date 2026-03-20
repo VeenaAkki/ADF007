@@ -1,0 +1,26 @@
+{
+	"name": "CSV_PARQUET_TRG",
+	"properties": {
+		"description": "It is set to run every 5mins",
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "PY_Trigger_deleteactivity",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 1,
+				"startTime": "2026-03-17T11:51:00",
+				"endTime": "2026-03-17T17:35:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}

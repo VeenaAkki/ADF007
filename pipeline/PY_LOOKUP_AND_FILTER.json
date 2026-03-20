@@ -1,0 +1,59 @@
+{
+	"name": "PY_LOOKUP_AND_FILTER",
+	"properties": {
+		"activities": [
+			{
+				"name": "LOOKUP_SQLSERVER",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "SqlServerSource",
+						"sqlReaderQuery": "Select user_id,first_name , last_name from people",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "DS_LOOKUP_SQLSERVER",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "FILTER_DATA_FROM_LIST",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "LOOKUP_SQLSERVER",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('LOOKUP_SQLSERVER').output.value",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@equals(item().FIRST_NAME,'Harry' )",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-03-18T09:33:19Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
