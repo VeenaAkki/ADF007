@@ -3,7 +3,7 @@
 	"properties": {
 		"description": "Event trigger to move file from blob to adls as soon as the file is placed ",
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
@@ -14,7 +14,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/input-trigger/blobs/input-trigger",
+			"blobPathBeginsWith": "/input-trigger/blobs/blobstorage0728/input-trigger/",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728",
