@@ -1,0 +1,22 @@
+{
+	"name": "DS_TRIGGER_INPUT_BLOB",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_INPUT_BLOB_TRIGGER",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "input-trigger"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

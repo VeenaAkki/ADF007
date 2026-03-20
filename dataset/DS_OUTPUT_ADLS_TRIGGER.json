@@ -1,0 +1,19 @@
+{
+	"name": "DS_OUTPUT_ADLS_TRIGGER",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ADLS_TRIGGER_OUTPUT",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "output-trigger-blob"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
