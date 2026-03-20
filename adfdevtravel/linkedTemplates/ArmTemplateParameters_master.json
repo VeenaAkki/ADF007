@@ -1,0 +1,156 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfdevtravel"
+		},
+		"LS_ADLSCSV_accountKey": {
+			"value": ""
+		},
+		"LS_ADLSEXCELFROM_accountKey": {
+			"value": ""
+		},
+		"LS_ADLSTO_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_EXCEL_accountKey": {
+			"value": ""
+		},
+		"LS_ADLS_TOCSV_accountKey": {
+			"value": ""
+		},
+		"LS_BLOBCSV_connectionString": {
+			"value": ""
+		},
+		"LS_CSVADLS_accountKey": {
+			"value": ""
+		},
+		"LS_CSVADLS_FRI_accountKey": {
+			"value": ""
+		},
+		"LS_CSV_ADLS_accountKey": {
+			"value": ""
+		},
+		"LS_EXCELADLS_FRI_accountKey": {
+			"value": ""
+		},
+		"LS_LOOKUP_CSV_accountKey": {
+			"value": ""
+		},
+		"LS_LOOKUP_SQLSERVER_password": {
+			"value": ""
+		},
+		"LS_METADATA_FILEEXISTS_accountKey": {
+			"value": ""
+		},
+		"LS_MULTIPLE_OUTPUTFILES_accountKey": {
+			"value": ""
+		},
+		"LS_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_SP_SQLSERVER_password": {
+			"value": ""
+		},
+		"LS_SQL_ADLS_password": {
+			"value": ""
+		},
+		"LS_validate_fileexists_accountKey": {
+			"value": ""
+		},
+		"ls_rest_parquet_accountKey": {
+			"value": ""
+		},
+		"ls_validdata_parquet_accountKey": {
+			"value": ""
+		},
+		"LS_ADLSCSV_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net"
+		},
+		"LS_ADLSEXCELFROM_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_ADLSTO_CSV_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_ADLS_CSV_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net"
+		},
+		"LS_ADLS_EXCEL_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net"
+		},
+		"LS_ADLS_TOCSV_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_CSVADLS_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_CSVADLS_FRI_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net"
+		},
+		"LS_CSV_ADLS_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_EXCELADLS_FRI_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net"
+		},
+		"LS_LOOKUP_CSV_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_LOOKUP_SQLSERVER_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_LOOKUP_SQLSERVER_properties_typeProperties_database": {
+			"value": "SalesDB"
+		},
+		"LS_LOOKUP_SQLSERVER_properties_typeProperties_userName": {
+			"value": "Vinuta"
+		},
+		"LS_METADATA_FILEEXISTS_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_MULTIPLE_OUTPUTFILES_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_SP_SQLSERVER_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SP_SQLSERVER_properties_typeProperties_database": {
+			"value": "SalesDB"
+		},
+		"LS_SP_SQLSERVER_properties_typeProperties_userName": {
+			"value": "Vinuta"
+		},
+		"LS_SQL_ADLS_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQL_ADLS_properties_typeProperties_database": {
+			"value": "SalesDB"
+		},
+		"LS_SQL_ADLS_properties_typeProperties_userName": {
+			"value": "Vinuta"
+		},
+		"LS_validate_fileexists_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"ls_rest_parquet_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"ls_validdata_parquet_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
