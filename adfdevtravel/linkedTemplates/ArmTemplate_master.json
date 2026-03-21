@@ -207,6 +207,14 @@
 			"type": "string",
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net/"
 		},
+		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_foldername": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_filename": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
 		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728"
@@ -425,6 +433,12 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_foldername": {
+						"value": "[parameters('EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_foldername')]"
+					},
+					"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_filename": {
+						"value": "[parameters('EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_filename')]"
 					},
 					"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
 						"value": "[parameters('EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope')]"

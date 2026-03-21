@@ -7,6 +7,14 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adfdevtravel"
 		},
+		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_foldername": {
+			"type": "string",
+			"defaultValue": "@triggerBody().folderPath"
+		},
+		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_filename": {
+			"type": "string",
+			"defaultValue": "@triggerBody().fileName"
+		},
 		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728"
@@ -1084,12 +1092,15 @@
 							"referenceName": "PY_TRIGGERS_EVENT",
 							"type": "PipelineReference"
 						},
-						"parameters": {}
+						"parameters": {
+							"pl_param_foldername": "[parameters('EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_foldername')]",
+							"pl_param_filename": "[parameters('EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_filename')]"
+						}
 					}
 				],
 				"type": "BlobEventsTrigger",
 				"typeProperties": {
-					"blobPathBeginsWith": "/input-trigger/blobs/input-trigger",
+					"blobPathBeginsWith": "/input-trigger/blobs/",
 					"blobPathEndsWith": ".csv",
 					"ignoreEmptyBlobs": true,
 					"scope": "[parameters('EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope')]",

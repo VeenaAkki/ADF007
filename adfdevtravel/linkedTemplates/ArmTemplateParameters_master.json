@@ -155,6 +155,12 @@
 		"ls_validdata_parquet_properties_typeProperties_url": {
 			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
 		},
+		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_foldername": {
+			"value": "@triggerBody().folderPath"
+		},
+		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_PY_TRIGGERS_EVENT_parameters_pl_param_filename": {
+			"value": "@triggerBody().fileName"
+		},
 		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
 			"value": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728"
 		},
