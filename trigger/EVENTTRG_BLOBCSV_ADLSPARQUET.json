@@ -14,7 +14,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/input-trigger/blobs/blobstorage0728/input-trigger/",
+			"blobPathBeginsWith": "/input-trigger/blobs/input-trigger",
 			"blobPathEndsWith": ".csv",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728",
