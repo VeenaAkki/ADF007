@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_TOCSV'"
 		},
+		"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_TRIGGER_OUTPUT'"
+		},
 		"LS_BLOBCSV_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_BLOBCSV'"
@@ -50,6 +54,10 @@
 		"LS_EXCELADLS_FRI_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_EXCELADLS_FRI'"
+		},
+		"LS_INPUT_BLOB_TRIGGER_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_INPUT_BLOB_TRIGGER'"
 		},
 		"LS_LOOKUP_CSV_accountKey": {
 			"type": "secureString",
@@ -79,10 +87,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_validdata_parquet'"
 		},
-		"LS_INPUT_BLOB_TRIGGER_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LS_INPUT_BLOB_TRIGGER'"
-		},
 		"LS_ADLSCSV_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net"
@@ -104,6 +108,10 @@
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net"
 		},
 		"LS_ADLS_TOCSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net/"
 		},
@@ -259,6 +267,23 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/LS_ADLS_TRIGGER_OUTPUT')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_ADLS_TRIGGER_OUTPUT_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LS_BLOBCSV')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -335,6 +360,19 @@
 						"type": "SecureString",
 						"value": "[parameters('LS_EXCELADLS_FRI_accountKey')]"
 					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_INPUT_BLOB_TRIGGER')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('LS_INPUT_BLOB_TRIGGER_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -454,30 +492,6 @@
 						"type": "SecureString",
 						"value": "[parameters('ls_validdata_parquet_accountKey')]"
 					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/selfHostedIntegrationRunTime')]",
-			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"type": "SelfHosted",
-				"description": "This is used when we want to transfer data from on-premises applications",
-				"typeProperties": {}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/LS_INPUT_BLOB_TRIGGER')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('LS_INPUT_BLOB_TRIGGER_connectionString')]"
 				}
 			},
 			"dependsOn": []

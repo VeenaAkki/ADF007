@@ -23,6 +23,9 @@
 		"LS_ADLS_TOCSV_accountKey": {
 			"value": ""
 		},
+		"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
+			"value": ""
+		},
 		"LS_BLOBCSV_connectionString": {
 			"value": ""
 		},
@@ -36,6 +39,9 @@
 			"value": ""
 		},
 		"LS_EXCELADLS_FRI_accountKey": {
+			"value": ""
+		},
+		"LS_INPUT_BLOB_TRIGGER_connectionString": {
 			"value": ""
 		},
 		"LS_LOOKUP_CSV_accountKey": {
@@ -68,12 +74,6 @@
 		"ls_validdata_parquet_accountKey": {
 			"value": ""
 		},
-		"LS_INPUT_BLOB_TRIGGER_connectionString": {
-			"value": ""
-		},
-		"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
-			"value": ""
-		},
 		"LS_ADLSCSV_properties_typeProperties_url": {
 			"value": "https://adlsdevtravel001.dfs.core.windows.net"
 		},
@@ -90,6 +90,9 @@
 			"value": "https://adlsdevtravel001.dfs.core.windows.net"
 		},
 		"LS_ADLS_TOCSV_properties_typeProperties_url": {
+			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
 			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
 		},
 		"LS_CSVADLS_properties_typeProperties_url": {
@@ -150,9 +153,6 @@
 			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
 		},
 		"ls_validdata_parquet_properties_typeProperties_url": {
-			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
-		},
-		"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
 			"value": "https://adlsdevtravel001.dfs.core.windows.net/"
 		},
 		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {

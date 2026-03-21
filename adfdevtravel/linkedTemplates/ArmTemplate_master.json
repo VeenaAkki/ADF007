@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_TOCSV'"
 		},
+		"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_TRIGGER_OUTPUT'"
+		},
 		"LS_BLOBCSV_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_BLOBCSV'"
@@ -50,6 +54,10 @@
 		"LS_EXCELADLS_FRI_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_EXCELADLS_FRI'"
+		},
+		"LS_INPUT_BLOB_TRIGGER_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_INPUT_BLOB_TRIGGER'"
 		},
 		"LS_LOOKUP_CSV_accountKey": {
 			"type": "secureString",
@@ -91,14 +99,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_validdata_parquet'"
 		},
-		"LS_INPUT_BLOB_TRIGGER_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'LS_INPUT_BLOB_TRIGGER'"
-		},
-		"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_TRIGGER_OUTPUT'"
-		},
 		"LS_ADLSCSV_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net"
@@ -120,6 +120,10 @@
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net"
 		},
 		"LS_ADLS_TOCSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net/"
+		},
+		"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net/"
 		},
@@ -203,10 +207,6 @@
 			"type": "string",
 			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net/"
 		},
-		"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://adlsdevtravel001.dfs.core.windows.net/"
-		},
 		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728"
@@ -256,6 +256,9 @@
 					"LS_ADLS_TOCSV_accountKey": {
 						"value": "[parameters('LS_ADLS_TOCSV_accountKey')]"
 					},
+					"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
+						"value": "[parameters('LS_ADLS_TRIGGER_OUTPUT_accountKey')]"
+					},
 					"LS_BLOBCSV_connectionString": {
 						"value": "[parameters('LS_BLOBCSV_connectionString')]"
 					},
@@ -270,6 +273,9 @@
 					},
 					"LS_EXCELADLS_FRI_accountKey": {
 						"value": "[parameters('LS_EXCELADLS_FRI_accountKey')]"
+					},
+					"LS_INPUT_BLOB_TRIGGER_connectionString": {
+						"value": "[parameters('LS_INPUT_BLOB_TRIGGER_connectionString')]"
 					},
 					"LS_LOOKUP_CSV_accountKey": {
 						"value": "[parameters('LS_LOOKUP_CSV_accountKey')]"
@@ -292,9 +298,6 @@
 					"ls_validdata_parquet_accountKey": {
 						"value": "[parameters('ls_validdata_parquet_accountKey')]"
 					},
-					"LS_INPUT_BLOB_TRIGGER_connectionString": {
-						"value": "[parameters('LS_INPUT_BLOB_TRIGGER_connectionString')]"
-					},
 					"LS_ADLSCSV_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLSCSV_properties_typeProperties_url')]"
 					},
@@ -312,6 +315,9 @@
 					},
 					"LS_ADLS_TOCSV_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLS_TOCSV_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url')]"
 					},
 					"LS_CSVADLS_properties_typeProperties_url": {
 						"value": "[parameters('LS_CSVADLS_properties_typeProperties_url')]"
@@ -364,9 +370,6 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"LS_ADLS_TRIGGER_OUTPUT_accountKey": {
-						"value": "[parameters('LS_ADLS_TRIGGER_OUTPUT_accountKey')]"
-					},
 					"LS_LOOKUP_SQLSERVER_password": {
 						"value": "[parameters('LS_LOOKUP_SQLSERVER_password')]"
 					},
@@ -375,9 +378,6 @@
 					},
 					"LS_SQL_ADLS_password": {
 						"value": "[parameters('LS_SQL_ADLS_password')]"
-					},
-					"LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url": {
-						"value": "[parameters('LS_ADLS_TRIGGER_OUTPUT_properties_typeProperties_url')]"
 					},
 					"LS_LOOKUP_SQLSERVER_properties_typeProperties_server": {
 						"value": "[parameters('LS_LOOKUP_SQLSERVER_properties_typeProperties_server')]"
