@@ -54,6 +54,10 @@
 							"ds_param_foldername": {
 								"value": "@pipeline().parameters.pl_param_foldername",
 								"type": "Expression"
+							},
+							"ds_param_filename": {
+								"value": "@pipeline().parameters.pl_param_filename",
+								"type": "Expression"
 							}
 						}
 					}
