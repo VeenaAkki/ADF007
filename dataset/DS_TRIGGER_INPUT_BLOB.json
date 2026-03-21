@@ -5,12 +5,27 @@
 			"referenceName": "LS_INPUT_BLOB_TRIGGER",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"ds_param_foldername": {
+				"type": "string"
+			},
+			"ds_param_filename": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"container": "input-trigger"
+				"fileName": {
+					"value": "@dataset().ds_param_filename",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().ds_param_foldername",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
