@@ -1,0 +1,23 @@
+{
+	"name": "AzureSqlDatabase1_keyvault",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "azuresqlserver0703.database.windows.net",
+			"database": "testdatabase",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "adminserver",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1_connector",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "secreteData"
+			}
+		}
+	}
+}
