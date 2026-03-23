@@ -164,6 +164,18 @@
 		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
 			"value": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728"
 		},
+		"AzureKeyVault1_connector_properties_typeProperties_baseUrl": {
+			"value": "https://Azurekeyvault008.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_server": {
+			"value": "azuresqlserver0703.database.windows.net"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_database": {
+			"value": "testdatabase"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_userName": {
+			"value": "adminserver"
+		},
 		"containerUri": {
 			"value": ""
 		},

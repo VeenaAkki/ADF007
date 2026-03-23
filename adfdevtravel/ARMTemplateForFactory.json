@@ -218,6 +218,22 @@
 		"EVENTTRG_BLOBCSV_ADLSPARQUET_properties_typeProperties_scope": {
 			"type": "string",
 			"defaultValue": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728"
+		},
+		"AzureKeyVault1_connector_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://Azurekeyvault008.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "azuresqlserver0703.database.windows.net"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "testdatabase"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminserver"
 		}
 	},
 	"variables": {
@@ -2484,6 +2500,47 @@
 				"typeProperties": {}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureKeyVault1_connector')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('AzureKeyVault1_connector_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1_keyvault')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('AzureSqlDatabase1_keyvault_properties_typeProperties_server')]",
+					"database": "[parameters('AzureSqlDatabase1_keyvault_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('AzureSqlDatabase1_keyvault_properties_typeProperties_userName')]",
+					"password": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault1_connector",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "secreteData"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault1_connector')]"
+			]
 		}
 	]
 }

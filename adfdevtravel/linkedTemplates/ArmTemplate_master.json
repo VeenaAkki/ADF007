@@ -219,6 +219,22 @@
 			"type": "string",
 			"defaultValue": "/subscriptions/11442715-cc46-49ec-b253-d92f9c67119e/resourceGroups/rg_dev_travel/providers/Microsoft.Storage/storageAccounts/blobstorage0728"
 		},
+		"AzureKeyVault1_connector_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://Azurekeyvault008.vault.azure.net/"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "azuresqlserver0703.database.windows.net"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "testdatabase"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminserver"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -387,6 +403,9 @@
 					"LS_SQL_ADLS_password": {
 						"value": "[parameters('LS_SQL_ADLS_password')]"
 					},
+					"AzureKeyVault1_connector_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_connector_properties_typeProperties_baseUrl')]"
+					},
 					"LS_LOOKUP_SQLSERVER_properties_typeProperties_server": {
 						"value": "[parameters('LS_LOOKUP_SQLSERVER_properties_typeProperties_server')]"
 					},
@@ -413,6 +432,15 @@
 					},
 					"LS_SQL_ADLS_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQL_ADLS_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase1_keyvault_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase1_keyvault_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase1_keyvault_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase1_keyvault_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase1_keyvault_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase1_keyvault_properties_typeProperties_userName')]"
 					}
 				}
 			},

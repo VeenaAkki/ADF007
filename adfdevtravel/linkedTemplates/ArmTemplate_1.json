@@ -19,6 +19,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQL_ADLS'"
 		},
+		"AzureKeyVault1_connector_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://Azurekeyvault008.vault.azure.net/"
+		},
 		"LS_LOOKUP_SQLSERVER_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "localhost\\SQLEXPRESS"
@@ -54,6 +58,18 @@
 		"LS_SQL_ADLS_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Vinuta"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "azuresqlserver0703.database.windows.net"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "testdatabase"
+		},
+		"AzureSqlDatabase1_keyvault_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "adminserver"
 		}
 	},
 	"variables": {
@@ -68,6 +84,19 @@
 				"type": "SelfHosted",
 				"description": "This is used when we want to transfer data from on-premises applications",
 				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureKeyVault1_connector')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('AzureKeyVault1_connector_properties_typeProperties_baseUrl')]"
+				}
 			},
 			"dependsOn": []
 		},
@@ -544,6 +573,34 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabase1_keyvault')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('AzureSqlDatabase1_keyvault_properties_typeProperties_server')]",
+					"database": "[parameters('AzureSqlDatabase1_keyvault_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('AzureSqlDatabase1_keyvault_properties_typeProperties_userName')]",
+					"password": {
+						"type": "AzureKeyVaultSecret",
+						"store": {
+							"referenceName": "AzureKeyVault1_connector",
+							"type": "LinkedServiceReference"
+						},
+						"secretName": "secreteData"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureKeyVault1_connector')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/PY_ADLSEXCEL_ADLSCSV')]",
 			"type": "Microsoft.DataFactory/factories/pipelines",
 			"apiVersion": "2018-06-01",
@@ -617,240 +674,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/DS_EXCEL')]",
 				"[concat(variables('factoryId'), '/datasets/DS_CSV')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PY_CSV_CSV')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "CPY_CSV_ADLSCSV",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "DelimitedTextSource",
-								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
-									"wildcardFileName": "*.csv",
-									"enablePartitionDiscovery": false
-								},
-								"formatSettings": {
-									"type": "DelimitedTextReadSettings"
-								}
-							},
-							"sink": {
-								"type": "DelimitedTextSink",
-								"storeSettings": {
-									"type": "AzureBlobFSWriteSettings"
-								},
-								"formatSettings": {
-									"type": "DelimitedTextWriteSettings",
-									"quoteAllText": true,
-									"fileExtension": ""
-								}
-							},
-							"enableStaging": false,
-							"translator": {
-								"type": "TabularTranslator",
-								"typeConversion": true,
-								"typeConversionSettings": {
-									"allowDataTruncation": true,
-									"treatBooleanAsNumber": false
-								}
-							}
-						},
-						"inputs": [
-							{
-								"referenceName": "DS_CSV",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "DS_CSV_ADLS",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2026-03-13T16:16:50Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DS_CSV')]",
-				"[concat(variables('factoryId'), '/datasets/DS_CSV_ADLS')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/PY_GETMETADATA_FILTER_COPY')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "GET_FILES_LIST",
-						"type": "GetMetadata",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"dataset": {
-								"referenceName": "DS_validatecsvfile",
-								"type": "DatasetReference",
-								"parameters": {}
-							},
-							"fieldList": [
-								"childItems"
-							],
-							"storeSettings": {
-								"type": "AzureBlobFSReadSettings",
-								"recursive": true,
-								"enablePartitionDiscovery": false
-							},
-							"formatSettings": {
-								"type": "DelimitedTextReadSettings"
-							}
-						}
-					},
-					{
-						"name": "FILTER_ONLY_ONEFILE",
-						"type": "Filter",
-						"dependsOn": [
-							{
-								"activity": "GET_FILES_LIST",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('GET_FILES_LIST').output.childItems",
-								"type": "Expression"
-							},
-							"condition": {
-								"value": "@contains(item().name,'.csv' )",
-								"type": "Expression"
-							}
-						}
-					},
-					{
-						"name": "ForEach2",
-						"type": "ForEach",
-						"dependsOn": [
-							{
-								"activity": "FILTER_ONLY_ONEFILE",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"userProperties": [],
-						"typeProperties": {
-							"items": {
-								"value": "@activity('FILTER_ONLY_ONEFILE').output.value",
-								"type": "Expression"
-							},
-							"activities": [
-								{
-									"name": "CPY_SPECIFIC_FILES_copy1",
-									"type": "Copy",
-									"dependsOn": [],
-									"policy": {
-										"timeout": "0.12:00:00",
-										"retry": 0,
-										"retryIntervalInSeconds": 30,
-										"secureOutput": false,
-										"secureInput": false
-									},
-									"userProperties": [],
-									"typeProperties": {
-										"source": {
-											"type": "DelimitedTextSource",
-											"storeSettings": {
-												"type": "AzureBlobFSReadSettings",
-												"recursive": true,
-												"wildcardFileName": {
-													"value": "@item().name",
-													"type": "Expression"
-												},
-												"enablePartitionDiscovery": false
-											},
-											"formatSettings": {
-												"type": "DelimitedTextReadSettings"
-											}
-										},
-										"sink": {
-											"type": "ParquetSink",
-											"storeSettings": {
-												"type": "AzureBlobFSWriteSettings"
-											},
-											"formatSettings": {
-												"type": "ParquetWriteSettings"
-											}
-										},
-										"enableStaging": false,
-										"translator": {
-											"type": "TabularTranslator",
-											"typeConversion": true,
-											"typeConversionSettings": {
-												"allowDataTruncation": true,
-												"treatBooleanAsNumber": false
-											}
-										}
-									},
-									"inputs": [
-										{
-											"referenceName": "DS_validatecsvfile",
-											"type": "DatasetReference",
-											"parameters": {}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "DS_MULTIPLE_OUTPUTFILES",
-											"type": "DatasetReference",
-											"parameters": {}
-										}
-									]
-								}
-							]
-						}
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": [],
-				"lastPublishTime": "2026-03-18T15:01:48Z"
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/DS_validatecsvfile')]",
-				"[concat(variables('factoryId'), '/datasets/DS_MULTIPLE_OUTPUTFILES')]"
 			]
 		}
 	]
