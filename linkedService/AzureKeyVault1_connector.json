@@ -1,0 +1,10 @@
+{
+	"name": "AzureKeyVault1_connector",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://Azurekeyvault008.vault.azure.net/"
+		}
+	}
+}
